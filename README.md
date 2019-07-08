@@ -751,6 +751,7 @@ FCM.createNotificationChannel({
     name: 'Car status',
     description: 'Notifies when changes car status',
     priority: 'max',
+    vibrate: 500
 });
 ```
 

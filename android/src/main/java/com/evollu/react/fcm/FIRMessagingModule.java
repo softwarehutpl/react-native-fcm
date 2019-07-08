@@ -118,6 +118,13 @@ public class FIRMessagingModule extends ReactContextBaseJavaModule implements Li
             if(details.hasKey("description")){
                 channel.setDescription(details.getString("description"));
             }
+            if(details.hasKey("vibrate")){
+                long vibrate = Math.round(details.getDouble("vibrate"));
+                if (vibrate > 0){
+                    channel.enableVibration(true);
+                    channel.setVibrationPattern(new long[]{0, vibrate});
+                }
+            }
             mngr.createNotificationChannel(channel);
         }
         promise.resolve(null);
